@@ -4,7 +4,6 @@ const app = express()
 const dotenv = require('dotenv')
 const connectDb = require('./db')
 
-const path = require('path')
 
 
 
@@ -16,7 +15,7 @@ const fileUpload = require('express-fileupload')
 const PORT = process.env.PORT || 8000
 dotenv.config()
 
-app.use(express.static(path.join(__dirname,'./client/build')))
+
 
 app.use(express.json())
 app.use(cors({credentials:true},process.env.CLIENT_URL))
