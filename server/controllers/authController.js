@@ -201,7 +201,7 @@ const orderStatusControllers =async(req,res)=>{
       message:"Error",
       error
   })
- console.log(error);
+
    }
 }
 module.exports = {registerController,loginController,testController,userAuth,forgotPassword,adminAuth,updateProfile,getOrderControllers,getOrderAllControllers,orderStatusControllers}

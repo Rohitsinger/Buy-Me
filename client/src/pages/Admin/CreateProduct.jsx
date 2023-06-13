@@ -46,9 +46,7 @@ const CreateProduct = () => {
       ProductData.append("quantity",quantity)
       ProductData.append("category",category)
       ProductData.append("photo",photo)
-      // ProductData.append("upload_preset","r7nxyvcb")
-      // ProductData.append('cloud_name',"dljovfltn")
-      // console.log(photo);
+   
       const {data} = await axios.post('/api/v1/product/create-product',ProductData)
       if(data?.success===true){
         toast.error("Cant Submit")
@@ -67,7 +65,7 @@ const CreateProduct = () => {
   useEffect(()=>{
     getAllCategories()
   },[])
-//  console.log(categories);
+
   return (
     <Layout title={"Dashboard - Create Products"}>
    <div className=' text-center leading-10 flex flex-col mt-36 mb-8 '>
@@ -94,13 +92,7 @@ const CreateProduct = () => {
               <input type='file' name='photo' accept='image/*' required onChange={(e)=>setPhoto(e.target.files[0])}  className='relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary' size={25}/>
             </label>
           </div>
-          <div className='mb-3'>
-            {/* {photo &&  (
-              <div className='text-center'>
-                <img src={URL.createObjectURL(photo)} alt="picture"  className=''/>
-              </div>
-            )} */}
-          </div>
+        
           <div className='mb-3'>
           <input type='text' value={name} required  placeholder='write a name' onChange={(e)=>setName(e.target.value)}  className='relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary' size={25}/>
           </div>
@@ -119,10 +111,7 @@ const CreateProduct = () => {
             <Option value="1">Yes</Option>
           </Select>
           </div>
-          {/* <div className='mb-3'>
-          <input type='text' value={category}  placeholder='category' onChange={(e)=>setCategory(e.target.value)}  className='relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary' size={25}/>
-          </div> */}
-        
+  
           <div>
             <button onClick={handleCreate} className='m-2 p-2 bg-green-600 transition-all rounded-md hover:bg-cyan-600'>Create Product</button>
           </div>

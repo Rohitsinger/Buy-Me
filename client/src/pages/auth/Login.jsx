@@ -56,7 +56,7 @@ const handleSubmit = async(e) =>{
         setAuth({...auth,user:data.user,token:data.token})
         localStorage.setItem("auth",JSON.stringify(data))
         navigate(location.state|| '/')
-       console.log("registered");
+      
     
       
     }

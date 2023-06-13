@@ -24,7 +24,7 @@ const CreateCategory = () => {
     e.preventDefault();
     try {
        const {data} = await axios.put(`/api/v1/category/update-category/${selected._id}`,{name:updatedName})
-       console.log(selected._id);
+   
       if(data?.success){
         toast.success(`category is created`)
         setSelected(null)
@@ -44,7 +44,7 @@ const CreateCategory = () => {
 
     try {
        const {data} = await axios.delete(`/api/v1/category/delete-category/${id}`,{name:updatedName})
-       console.log(id);
+      
       if(data?.success){
         toast.success(`${updatedName} is deleted`)
        

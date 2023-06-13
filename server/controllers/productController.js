@@ -80,11 +80,7 @@ var gateway = new braintree.BraintreeGateway({
          });
         
          const products = await Product.findByIdAndUpdate(req.params.pid,{...req.body},{new:true})
-        //  if(photo){
-        //     products.photo.data = fs.readFileSync(photo.path)
-        //     products.photo.contentType = photo.type
-        //  }
-        //  await products.save()
+      
        
              return res.status(200).send({
                  message:"Products Updated",

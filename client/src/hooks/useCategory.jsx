@@ -13,7 +13,7 @@ const useCategory=()=>{
             setCategory(data.categories)
           }
         } catch (error) {
-            console.log(error);
+           
             toast.error("Something went wrong while getting category")
         }
       }

@@ -4,6 +4,10 @@ const app = express()
 const dotenv = require('dotenv')
 const connectDb = require('./db')
 
+const path = require('path')
+
+
+
 const authRoute = require('./routes/authRoute')
 const categoryRoutes = require('./routes/categoryRoutes')
 const productRoute = require('./routes/productRoute')
@@ -11,6 +15,8 @@ const productRoute = require('./routes/productRoute')
 const fileUpload = require('express-fileupload')
 const PORT = process.env.PORT || 8000
 dotenv.config()
+
+app.use(express.static(path.join(__dirname,'./client/build')))
 
 app.use(express.json())
 app.use(cors({credentials:true},process.env.CLIENT_URL))
@@ -22,12 +28,8 @@ app.use('/api/v1/auth',authRoute)
 app.use('/api/v1/category',categoryRoutes)
 app.use('/api/v1/product',productRoute)
 
-
-
-
-
-app.get('/',(req,res)=>{
-   res.send(`Hello World`)
+app.use('*',function(req,res){
+    res.sendFile(path.join(__dirname,'./client/build/index.html'));
 })
 
 app.listen(process.env.PORT,()=>{
