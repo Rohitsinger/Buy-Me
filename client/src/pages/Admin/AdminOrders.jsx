@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 import Layout from '../../components/Layout/Layout'
-
+import {Link} from 'react-router-dom'
 import { useAuth } from '../../context/auth'
 import axios from 'axios'
 import moment from 'moment'
@@ -39,19 +39,21 @@ const AdminOrders = () => {
   return (
     <Layout>
       <div className='mt-36 flex flex-col md:flex-row mb-8  '>
-        <div className='md:w-1/4 mt-4 p-2 '>
-          <AdminMenu />
+      <div className=" md:w-1/3 flex flex-col ">
+          <div className=' hover:text-teal-700 flex flex-col text-center text-4xl'> Admin</div>
+          <Link to="/dashboard/user/profile" className=' hover:bg-slate-500 text-center p-2 m-4 bg-slate-300'>Profile</Link>
+          <Link to="/dashboard/user/orders" className=' hover:bg-slate-500 text-center  p-2 m-4 bg-slate-300'>Orders</Link>
         </div>
 
         <div className='md:w-2/3   uppercase  '>
           <div className="p-3 text-2xl ">
-            <h1 className='ml-24 mb-8 md:ml-0'>Products</h1>
+            <h1 className='text-center'>Products</h1>
             {orders.map((o, i) => (
               <>
-                <table class="flex md:block space-x-12  border-2 border-sky-500">
+                <table class=" md:block flex justify-between">
                   <thead className=' border-slate-500 '>
 
-                    <tr className=' w-1/2 border-slate-500  md:space-x-20 font-bold md:flex md:flex-row flex flex-col'>
+                    <tr className=' w-1/2 border-slate-500  md:space-x-20 font-bold md:flex md:flex-row'>
                       <th className='flex flex-col'>#</th>
 
                       <th className='flex flex-col'>Status</th>
@@ -64,7 +66,7 @@ const AdminOrders = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className=' md:space-x-20 w-1/2  md:flex md:flex-row flex flex-col  ml-8 md:ml-0'>
+                    <tr className=' md:space-x-20 w-1/2  md:flex md:flex-row flex flex-col'>
                       <th className='font-thin text-lg '>{i + 1}</th>
 
                       <td className='font-thin text-sm md:text-lg'>
@@ -74,7 +76,7 @@ const AdminOrders = () => {
                           ))}
                         </Select>
                       </td>
-                      <td className='font-thin text-sm md:text-lg'>{o?.buyer?.name}</td>
+                      <td className='font-thin text-sm md:text-lg '>{o?.buyer?.name}</td>
                       <td className='font-thin text-sm md:text-lg'>{moment(o?.createAt).fromNow()}</td>
                       <td className='font-thin text-sm md:text-lg '>{o?.payment?.success ? "Success" : "Failed"}</td>
                       <td className='font-thin text-sm md:text-lg px-16'>{o?.products.length}</td>

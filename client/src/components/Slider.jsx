@@ -37,6 +37,9 @@ const Slider = () => {
      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer '>
      <BsChevronCompactRight size={30} onClick={nextSlide}/>
      </div>
+     <span className='my-4 text-4xl  translate-x-0 transition-all duration-150  hover:bg-gray-500'>
+        Come and Explore your Product
+     </span>
      </div>
      
     

@@ -32,13 +32,13 @@ const Orders = () => {
         </div>
         <div className='md:w-2/3   uppercase  bg-gray-300 '>
           <div className="p-3 text-2xl ">
-            <h1 className='  '>Products</h1>
+            <h1 className=''>Products</h1>
             {orders.map((o, i) => (
               <>
-                <table class="table-auto  flex flex-col ">
+                <table class="table-auto  flex justify-between ">
                   <thead className=' border-slate-500 '>
 
-                    <tr className=' w-1/2 border-slate-500  md:space-x-20 font-bold md:flex md:flex-row '>
+                    <tr className=' w-1/2 border-slate-500 space-y-2 md:space-x-20 font-bold md:flex md:flex-row '>
                       <th className='flex flex-col'>#</th>
 
                       <th className='flex flex-col'>Status</th>
@@ -54,7 +54,7 @@ const Orders = () => {
                     <tr className=' md:space-x-20 w-1/2  md:flex md:flex-row flex flex-col '>
                       <th className='font-thin text-lg flex flex-col'>{i + 1}</th>
 
-                      <td className='font-thin text-lg flex flex-col'>{o?.status}</td>
+                      <td className='font-thin text-lg '>{o?.status}</td>
                       <td className='font-thin text-lg '>{o?.buyer?.name}</td>
                       <td className='font-thin text-lg '>{moment(o?.createAt).fromNow()}</td>
                       <td className='font-thin text-lg  '>{o?.payment?.success ? "Success" : "Failed"}</td>

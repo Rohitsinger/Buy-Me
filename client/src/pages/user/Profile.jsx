@@ -11,7 +11,7 @@ const Profile = () => {
   const [password,setPassowrd] = useState("")
   const [address,setAddress] = useState("")
   const [phone,setPhone] = useState("")
-  // const [question,setQuestion] = useState("")
+
       
    useEffect(()=>{
   const {name,email,phone,address} = auth?.user;
@@ -24,7 +24,7 @@ const Profile = () => {
 
 const handleSubmit = async(e) =>{
    e.preventDefault()
-  //  console.log(name,email,password,location,phone);
+ 
    
 
    try {
@@ -57,12 +57,12 @@ const handleSubmit = async(e) =>{
   return (
     <Layout title={"user Dashboard-profile"}>
               
-      <div className='flex mt-32'>
+      <div className='md:flex block mt-32'>
       <div className=" md:w-1/3 flex flex-col uppercase ">
-      <div className='text-lg hover:text-teal-700 text-center'> Admin</div>
+      <div className=' hover:text-teal-700 text-center text-4xl'> Admin</div>
     
-    <Link to="/dashboard/user/profile" className=' hover:bg-slate-500 p-2 m-4 bg-slate-300'>Profile</Link>
-     <Link to="/dashboard/user/orders" className=' hover:bg-slate-500  p-2 m-4 bg-slate-300'>Orders</Link>
+    <Link to="/dashboard/user/profile" className=' hover:bg-slate-500 p-2 m-4 text-center bg-slate-300'>Profile</Link>
+     <Link to="/dashboard/user/orders" className=' hover:bg-slate-500  p-2 m-4 text-center bg-slate-300'>Orders</Link>
      
      </div>
      <div className='bg-gradient-to-r  from-teal-300 to-pink-300 my-auto md:w-2/3'>

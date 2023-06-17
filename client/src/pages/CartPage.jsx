@@ -15,13 +15,9 @@ const CartPage = () => {
   const [instance, setInstance] = useState("")
   const [clientToken, setClientToken] = useState("")
   const [loading, setLoading] = useState(false)
-  const [toggle,setToggle] = useState(false)
+  
  
 
-  //toggle
-  const handleToggle =()=>{
-    setToggle(!toggle)
-  }
   //total price
 
   const totalprice = () => {
@@ -50,9 +46,9 @@ const CartPage = () => {
   const getToken = async () => {
     try {
       const { data } = await axios.get(`api/v1/product/braintree/token`)
-      console.log(data);
+      
       setClientToken(data?.clientToken)
-      console.log(clientToken)
+      
 
 
     } catch (error) {
@@ -87,33 +83,33 @@ const CartPage = () => {
    
   return (
     <Layout>
-      <div className='  mt-20 p-8'>
+      <div className='  mt-20 p-8 ' >
         <div className=' bg-yellow-200 mb-24'>
           <h1 className='text-center text-2xl font-sans'>{`Hello ${auth?.token && auth?.user?.name}`}</h1>
           <h4 className='text-center'>{cart?.length ? (`You have ${cart.length} items in your cart ${auth?.token ? "" : "please Login to Checkout"}`) : "Your Cart is Empty"}</h4>
         </div>
-        <div className=' flex'>
-          <div className='w-2/3   flex text-center rounded-xl border bottom-3  p-6 bg-white shadow-lg space-x-8 '>
+        <div className=' md:flex block '>
+          <div className='md:w-2/3 mx-auto w-full flex text-center rounded-xl border bottom-3  p-6 bg-white shadow-lg md:space-x-8 '>
 
-            <div className=' m-4 p-3  space-y-4'>
+            <div className=' md:m-4 md:p-2 ml-4  md:space-y-4'>
               {cart?.map(c => (
                 <div className='flex border bottom-1 '>
                   <div >
-                    <img src={c.imagePath} className='h-36 w-36' />
+                    <img src={c.imagePath} className='h-32 w-64' />
                   </div>
                   <div className='flex flex-col float-right mt-4 justify-center items-center mx-auto'>
                     <p className='text-xl font-semibold '>{c.name}</p>
                     <p className='text-sm '>{c.description}</p>
                     <p className='text-lg  '>Price:{c.price}</p>
-                    <div className='float-right'>
-                      <button className='bg-red-500 p-2 m-2 w-24 ml-8 rounded-md text-center' onClick={() => removeCartItem(c._id)}>Remove</button>
+                    <div className='md:float-right'>
+                      <button className='bg-red-400 p-2 m-2 w-24 ml-8 rounded-md text-center hover:bg-red-600' onClick={() => removeCartItem(c._id)}>Remove</button>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          <div className='w-1/3 text-center'>
+          <div className='w-1/3 mt-4 text-center ml-16'>
             <h4>cart Summary</h4>
             <p>Total </p>
             <hr />
@@ -128,20 +124,19 @@ const CartPage = () => {
 
               </>
             ) : (
-              <div>
+              <div className='mt-8'>
                 {auth?.token ? (<button className='bg-red-500' onClick={() => navigate('/dashboard/user/profile')}></button>)
                   :
                   (<button className='bg-red-500' onClick={() => navigate('/login', { state: '/cart' })}></button>)}
               </div>
             )}
            
-            <div className='mt-4'>
+            <div className='space-x-4'>
               {
                 !clientToken || !cart?.length? (""):(
                   <>
-                  <DropIn options={{ authorization : clientToken, paypal:{
-                flow:"vault"
-               }}}
+                  <DropIn options={{ authorization : clientToken, 
+               }}
               
              onInstance={(instance) => setInstance(instance)} />
                  <button

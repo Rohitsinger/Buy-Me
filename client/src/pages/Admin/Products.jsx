@@ -39,7 +39,7 @@ const Products = () => {
 
           <Link to="/dashboard/admin/create-category" className=' hover:bg-slate-500 p-2 m-4 bg-slate-300'>Create Category</Link>
           <Link to="/dashboard/admin/create-product" className=' hover:bg-slate-500  p-2 m-4 bg-slate-300'>Create Product</Link>
-          <Link to="/dashboard/admin/users" className=' hover:bg-slate-500  p-2 m-4 bg-slate-300'>Users</Link>
+        
           <Link to="/dashboard/admin/products" className=' hover:bg-slate-500  p-2 m-4 bg-slate-300'>Products</Link>
         </div>
 

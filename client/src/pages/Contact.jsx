@@ -6,7 +6,7 @@ const Contact = () => {
     <Layout title={'contact-us'}>
      
     
-    <form className=" w-full max-w-lg mx-auto mt-48 bg-black ">
+    <form className=" w-full max-w-lg mx-auto mt-48 bg-black mb-8">
       <div className="flex flex-wrap mx-3 mb-6">
       <img src="https://media.istockphoto.com/id/1168945108/photo/close-up-image-of-male-hands-using-smartphone-with-icon-telephone-email-mobile-phone-and.jpg?s=612x612&w=0&k=20&c=aVojLzP1n3XNxuRdy7Pqdzo6OyRAVanOWDUWjbu3R8Q=" className="w-64 flex justify-center mx-auto"/>
       </div>

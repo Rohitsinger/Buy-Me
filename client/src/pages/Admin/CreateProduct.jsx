@@ -68,7 +68,7 @@ const CreateProduct = () => {
 
   return (
     <Layout title={"Dashboard - Create Products"}>
-   <div className=' text-center leading-10 flex flex-col mt-36 mb-8 '>
+   <div className=' text-center leading-10 md:flex block  mt-36 mb-8 '>
       
       <div className=" md:w-1/3 flex flex-col uppercase ">
       <div className='text-lg hover:text-teal-700'> Admin</div>

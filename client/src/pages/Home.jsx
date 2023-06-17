@@ -139,11 +139,11 @@ useEffect(()=>{
  return (
     <Layout title={'Best Offers'} >
     
-     <div className=' bg-slate-200 text-center leading-10    mt-[30px] mb-8'>
+     <div className=' bg-slate-200 text-center leading-10    mt-[10px] mb-8'>
     
       <Slider/>
 
-    <div  onClick={() => setShow(!show)} className="sticky ml-4 ">
+    <div  onClick={() => setShow(!show)} className=" ml-4 ">
             {show ?
               <FaTimes size={35} />
               :
@@ -152,13 +152,15 @@ useEffect(()=>{
             
           </div>
           {show?(<> 
-            <div className=" md:fixed inset-y-0 md:mt-36 uppercase bg-slate-900 md:h-full  md:w-1/6 ">
+            <div className=" md:fixed inset-y-0 md:mt-36 uppercase bg-slate-900 md:h-full mb-8 md:w-1/6 ">
       
       <div className='text-lg hover:text-teal-700 text-white mt-20'>  Filter by Category</div>
           {categories?.map((c)=>(
         <Checkbox key={c._id} onChange={(e)=>handleFilter(e.target.checked,c._id)} className="text-white ">{c.name}</Checkbox>
       ))}
+      <br/>
       <button className=" bg-red-400 rounded-xl" onClick={()=>window.location.reload()}>RESET FILTERS</button>
+      <br/>
       </div>
       </>
       
@@ -201,6 +203,7 @@ useEffect(()=>{
         <>
         <div className=" w-full  h-full flex items-center justify-center mb-4 " >
     <a  class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+   
     <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={prod.imagePath} alt=""/>
     <div class="flex flex-col justify-between p-4 leading-normal">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{prod.name}</h5>
